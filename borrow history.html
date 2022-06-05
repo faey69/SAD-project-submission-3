@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Book Borrowed</title>
+</head>
+<!-- add links to button of logout, mainmenu etc from group members -->
+<body style="background-image:url('https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGxpYnJhcnl8ZW58MHx8MHx8&w=1000&q=80'); background-repeat:no-repeat; background-size:cover; overflow-x:hidden;">
+<style>
+.menu {
+  background-color: #111;
+  overflow: auto;
+  white-space: nowrap;
+  position:fixed;
+}
+
+.menu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #777;
+}
+
+#leftbar {
+	width:447px;
+	height:100%;
+	margin-top:50px;
+	float:left;
+	background-color:#111;
+	overflow-y:scroll;
+	position:fixed;
+}
+
+#leftbar a {
+	padding:6px 8px 1px 65px;
+	color:#818181;
+	display:block;
+}
+
+.cover {
+	padding:10px;
+	width:280px;
+}
+
+.summary {
+	padding-left:35px;
+	color:White;
+	cursor:help;
+}
+
+#listDescription {
+	padding-left:35px;
+	color:White;
+	font-size:25px;
+}
+
+.searchForm {
+	position:absolute;
+	left:460px;
+	margin-top:1px;
+}
+
+#search {
+	font-size:35px;
+}
+
+#searchBtn {
+	font-size:35px;
+	cursor:pointer;
+}
+
+.stdName {
+	position:absolute;
+	right:0;
+	width:510px;
+	text-align:left;
+	background-color:#111;
+	color:white;
+	font-size:25px;
+	padding:9px 0px 9px 0px;
+}
+
+.dropDownMenu {
+	position:absolute;
+	padding-top:3px;
+	right:0;
+	width:55px;
+	background-color:none;
+	color:white;
+	font-size:25px;
+	display:inline-block;
+}
+
+#downarrow {
+	width:45px;
+	height:32px;
+}
+
+.dropBtn {
+	background-color:#111;
+	border:none;
+	cursor:pointer;
+}
+
+.dropBtn:hover, .dropBtn:focus {
+	background-color:#777;
+}
+
+.dropDownContent {
+	display:none;
+	right:0;
+	position:absolute;
+	background-color:#111;
+	min-width:160px;
+	overflow:auto;
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index:1;
+}
+
+.dropDownContent a {
+	color:white;
+	padding:12px 16px;
+	text-decoration:none;
+	display:block;
+}
+
+.dropDownMenu a:hover {
+	background-color:#777;
+}
+
+.show {
+	display:block;
+}
+
+/* table's container css */
+
+.tablediv {
+	position:absolute;
+	background-color:rgba(0,0,0,0.7);
+	left:31%;
+	right:1%;
+	top:11%;
+	overflow-y:scroll;
+	max-height:87%;
+}
+
+.tablediv p {
+	color:white;
+	padding-left:2%;
+	font-size:25px;
+}
+
+.table {
+	color:white;
+	border:5px inset white;
+	table-layout:fixed;
+	width:100%;
+	height:100%
+}
+
+
+
+th, td {
+	padding:12px;
+	text-align:center;
+}
+
+th {
+	text-shadow: 2px 2px 4px white;
+	font-size:30px;
+}
+
+td {
+	font-size:24px;
+}
+
+
+</style>
+<!--function for dropdown menu-->
+<script>
+function dropdownf() {
+  document.getElementById("dropDownID").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropBtn')) {
+    var dropdowns = document.getElementsByClassName("dropBtn");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+
+<div class="menu">
+	<a href="index.html">Home</a>
+	<a href="#notes">Notes</a>
+	<a href="index.html">Borrow</a>
+	<a href="#about">About</a>
+	<a href="#support">Support</a>
+	<a href="#report">Report</a>
+</div>
+
+<div id="leftbar">
+	<p id="listDescription">Books Currently Borrowed:</p>
+	<a href="#book1"><img class="cover" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1449868701l/11127._SY475_.jpg" /></a>
+	<details>
+	<summary class="summary">The Narnia Chronicles</summary>
+	<p class="summary">The details related to this book, such as date borrowed, borrowed days, et cetera.</p>
+	</details>
+	<a href="#book2"><img class="cover" src="https://cdn.store-assets.com/s/177965/i/9268754.jpeg" /></a>
+	<details>
+	<summary class="summary">The Night Circus</summary>
+	<p class="summary">The details related to this book, such as date borrowed, borrowed days, et cetera.</p>
+	</details>
+	<a href="#book3"><img class="cover" src="https://bci.kinokuniya.com/my/jsp/images/book-img/97803/97803160/9780316015844.jpg" /></a>
+	<details>
+	<summary class="summary">The Twilight Saga</summary>
+	<p class="summary">The details related to this book, such as date borrowed, borrowed days, et cetera.</p>
+	</details>
+	<a href="#book4"><img class="cover" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1367545443l/157993.jpg" /></a>
+	<details>
+	<summary class="summary">The Little Prince</summary>
+	<p class="summary">The details related to this book, such as date borrowed, borrowed days, et cetera.</p>
+	</details>
+	<a href="#book5"><img class="cover" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1175696284l/546384.jpg" /></a>
+	<details>
+	<summary class="summary">Tuesdays With Morrie</summary>
+	<p class="summary">The details related to this book, such as date borrowed, borrowed days, et cetera.</p>
+	</details>
+	 <br/><br/><br/><br/><hr/>
+</div>
+
+<div class="searchForm">
+<form>
+	<input type="text" id="search" name="search" placeholder="Keyword/ISBN">
+	<button type="submit" id="searchBtn">Search</button>
+</form>
+</div>
+
+<div class="stdName">
+	&nbsp &nbsp CA99999&nbsp &nbsp STUDENT NAME HERE
+</div>
+
+<div class="dropDownMenu">
+	<button onclick="dropdownf()" class="dropBtn"><img id="downarrow" src="downarrow.png"></button>
+	<div id="dropDownID" class="dropDownContent">
+		<a href="#">Profile</a>
+		<a href="borrow history.html">Borrow History</a>
+		<a href="#">Logout</a>
+	</div>
+</div>
+
+<div class="tablediv">
+<p>Books Borrowed History:</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Book Title</th>
+				<th>Borrow Date</th>
+				<th>Return Date</th>
+				<th>ISBN10</th>
+				<th>ISBN13</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>The Chronicles of Narnia</td>
+				<td>3/6/2022</td>
+				<td>13/6/2022</td>
+				<td>0066238501</td>
+				<td>9780066238500</td>
+			</tr>
+			<tr>
+				<td>The Night Circus</td>
+				<td>3/5/2022</td>
+				<td>13/5/2022</td>
+				<td>0385534639, 0307744434</td>
+				<td>9780385534635</td>
+			</tr>
+			<tr>
+				<td>The Twilight Saga</td>
+				<td>3/4/2022</td>
+				<td>13/4/2022</td>
+				<td>0316015849</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td>The Little Prince</td>
+				<td>3/3/2022</td>
+				<td>13/3/2022</td>
+				<td>N/A</td>
+				<td>9781847494238</td>
+			</tr>
+			<tr>
+				<td>Tuesdays With Morrie</td>
+				<td>3/2/2022</td>
+				<td>13/2/2022</td>
+				<td>1568959672</td>
+				<td>9781568959672</td>
+			</tr>
+			<tr>
+				<td>The Feral Child</td>
+				<td>3/1/2022</td>
+				<td>13/1/2022</td>
+				<td>0857383795</td>
+				<td>9780857383792</td>
+			</tr>
+			<tr>
+				<td>Alice in Wonderland</td>
+				<td>3/12/2021</td>
+				<td>13/12/2021</td>
+				<td>0573605165</td>
+				<td>9780573605161</td>
+			</tr>
+			<tr>
+				<td>The Hunger Games</td>
+				<td>3/11/2021</td>
+				<td>13/11/2021</td>
+				<td>N/A</td>
+				<td>9780439023481</td>
+			</tr>
+			<tr>
+				<td>この素晴らしい世界に祝福を！</td>
+				<td>3/10/2021</td>
+				<td>13/10/2021</td>
+				<td>4040705394</td>
+				<td>9784040705392</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+</body>
+</html>
